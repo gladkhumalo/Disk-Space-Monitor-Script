@@ -1,8 +1,0 @@
-$disks = Get-PSDrive -PSProvider FileSystem
-
-foreach ($disk in $disks) {
-    $freePercent = ($disk.Free / $disk.Used) * 100
-    if ($freePercent -lt 20) {
-        Write-Host "WARNING: $($disk.Name) is low on space!"
-    }
-}
