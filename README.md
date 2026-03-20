@@ -30,7 +30,7 @@ This is simple as it looks. Using the **‘New-SelfSignedCertificate’** cmdlet
       -HashAlgorithm SHA256
 ```
 This command creates a self-signed SSL/TLS certificate for local HTTPS development. Here's a breakdown of each parameter:
-* ```powershell New-SelfSignedCertificate``` — The cmdlet that generates the certificate.
+* ```New-SelfSignedCertificate``` — The cmdlet that generates the certificate.
 -DnsName "localhost", "127.0.0.1", "::1"
 Adds Subject Alternative Names (SANs) to the certificate, so it's valid for all three common ways to refer to your local machine: hostname, IPv4 loopback, and IPv6 loopback.
 -CertStoreLocation "cert:\LocalMachine\My"
