@@ -49,6 +49,5 @@ After running the above command, you can then view the certificate:
 Or open the certificate MMC snap-in:
 ```powershell
     certlm.msc
-    ![MMC Console](./assets/mmc.jpg)
-
 ```
+![MMC Console](./assets/mmc.jpg)
