@@ -41,3 +41,12 @@ This command creates a self-signed SSL/TLS certificate for local HTTPS developme
 * ```-KeyUsage DigitalSignature, KeyEncipherment``` — Restricts what the certificate's private key can be used for — signing data and encrypting key exchange, which are exactly what HTTPS (TLS) needs.
 * ```-TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")``` — Sets the Extended Key Usage (EKU) to Server Authentication (OID 1.3.6.1.5.5.7.3.1), explicitly marking this as a server certificate used for TLS — required by modern browsers to trust it for HTTPS.
 * ``` -HashAlgorithm SHA256``` - Signs the certificate using SHA-256, which is the modern standard (SHA-1 is deprecated and rejected by browsers).
+
+After running the above command, you can then view the certificate:
+```powershell
+    Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*Local*" }
+```
+Or open the certificate MMC snap-in:
+```powershell
+    certlm.msc
+```
