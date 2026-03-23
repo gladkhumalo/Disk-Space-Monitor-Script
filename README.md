@@ -16,7 +16,7 @@ Self-signed certificates are useful for development, testing, internal services,
 2. Search for PowerShell
 3. Right-click → Run as Administrator
 
-## 1. Create Your Own SSL Certificate using PowerShell
+### 1. Create Your Own SSL Certificate using PowerShell
 This is simple as it looks. Using the **‘New-SelfSignedCertificate’** cmdlet, you can create self-signed certificate in a jiffy.
 
 ```powershell
@@ -42,7 +42,7 @@ This command creates a self-signed SSL/TLS certificate for local HTTPS developme
 * ```-TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")``` — Sets the Extended Key Usage (EKU) to Server Authentication (OID 1.3.6.1.5.5.7.3.1), explicitly marking this as a server certificate used for TLS — required by modern browsers to trust it for HTTPS.
 * ``` -HashAlgorithm SHA256``` - Signs the certificate using SHA-256, which is the modern standard (SHA-1 is deprecated and rejected by browsers).
 
-After running the above command, you can then view the certificate:
+### 2. After running the above command, you can then view the certificate:
 ```powershell
     Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*Local*" }
 ```
@@ -51,3 +51,10 @@ Or open the certificate MMC snap-in:
     certlm.msc
 ```
 ![MMC Console](./assets/mmc.jpg)
+
+## Step 2. Trust it locally (remove browser warnings on your machine)
+Self-signed certs cause "not secure" warnings by default. To trust it only on your PC:
+    1. Open **certmgr.msc** (or mmc → Add Snap-in → Certificates → Computer account).
+    2. Go to **Personal** > **Certificates**, find your new cert.
+    3. **Right-click → All Tasks → Export → Export without private key → DER encoded binary X.509 (.cer).**
+    4. **Double-click the .cer file → Install Certificate → Local Machine → Place all certificates in: Trusted Root Certification Authorities.**
