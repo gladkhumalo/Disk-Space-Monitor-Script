@@ -68,6 +68,6 @@ Easiest way (using the .cer file from Step 2)
     1. Double-click localhost-root.cer
 2. Click **Install Certificate**
 3. Choose **Local Machine → Next**
-4. Place all certificates in the following store → Browse → Trusted Root Certification Authorities → OK
-5. Next → Finish
-6. Click Yes on the security warning
+4. Place all certificates in the following **store → Browse → Trusted Root Certification Authorities → OK**
+5. **Next → Finish**
+6. Click **Yes** on the security warning
