@@ -82,3 +82,9 @@ Export-Certificate -Cert $cert -FilePath "C:\temp\localhost-root.cer"
 
 Import-Certificate -FilePath "C:\temp\localhost-root.cer" -CertStoreLocation cert:\LocalMachine\Root
 ```
+## Quick Tips & Troubleshooting
+* **Still seeing warnings?** Restart Chrome/Edge/Firefox completely (or run ```chrome://restart```)
+* Want a wildcard? Add ```-DnsName "*.localdev.com", "localdev.com"``` in Step 1
+* Need to remove it later? Just delete from ```certlm.msc```
+* For multiple machines? Export the ```.cer``` and import on each one
+* Want something even easier? Check out mkcert (one-command local CA)
